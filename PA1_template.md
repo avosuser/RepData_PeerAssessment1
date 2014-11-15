@@ -10,7 +10,7 @@ library(ggplot2)
 library(lubridate)
 library(scales)
 
-WD <- c("C:/Users/20537710/Documents/Coursera/Reproducible Research/Assignment-1")
+WD <- c("C:/Users/20537710/Documents/Coursera/Reproducible Research/Assignment-1/RepData_PeerAssessment1")
 setwd(WD)
 ```
 
