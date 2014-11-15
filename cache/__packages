@@ -1,0 +1,12 @@
+base
+data.table
+ggplot2
+lubridate
+scales
+stringr
+rJava
+xlsxjars
+xlsx
+bitops
+RCurl
+knitr
