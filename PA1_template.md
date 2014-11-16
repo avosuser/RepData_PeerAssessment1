@@ -7,8 +7,35 @@ Setup my working directory.
 
 ```r
 library(data.table)
+```
+
+```
+## data.table 1.9.4  For help type: ?data.table
+## *** NB: by=.EACHI is now explicit. See README to restore previous behaviour.
+## 
+## Attaching package: 'data.table'
+## 
+## The following object is masked _by_ '.GlobalEnv':
+## 
+##     .N
+```
+
+```r
 library(ggplot2)
 library(lubridate)
+```
+
+```
+## 
+## Attaching package: 'lubridate'
+## 
+## The following objects are masked from 'package:data.table':
+## 
+##     hour, mday, month, quarter, wday, week, yday, year
+```
+
+```r
+library(knitr)
 
 WD <- c("C:/Users/20537710/Documents/Coursera/Reproducible Research/Assignment-1/RepData_PeerAssessment1")
 setwd(WD)
@@ -53,6 +80,7 @@ Histogram of the total number of steps taken each day
 
 ```r
 p <- ggplot(data = stepsPerDay, aes(x = steps_per_day)) + 
+        ggtitle("Histogram of Number Of Steps per day") +
         geom_histogram(binwidth = 1000, colour="white", fill="black") +
         theme(axis.text.x = element_text(angle=90, vjust = 0.5, hjust = 1))
 
@@ -97,8 +125,9 @@ The below code generates the time series plot
 
 ```r
 p <- ggplot(data = stepsPerFiveMinIntv, aes(x = interval, y = steps)) +
-    geom_line() +
-   # scale_x_continuous(breaks = seq(0,2355,50)) +
+     geom_line() +
+     ggtitle("Avg Num Of Steps per 5 Min Period") +
+    scale_x_continuous(breaks = seq(0,2355,100)) +
     theme(axis.text.x = element_text(angle=90, vjust = 0.5, hjust = 1))
 
 p
@@ -180,6 +209,7 @@ setnames(stepsPerDayImpData, c("date", "steps_per_day"))
 ```r
 p <- ggplot(data = stepsPerDayImpData, aes(x = steps_per_day)) + 
         geom_histogram(binwidth = 1000, colour="white", fill="black") +
+        ggtitle("Histogram of Number Of Steps per day") +
         theme(axis.text.x = element_text(angle=90, vjust = 0.5, hjust = 1))
 
 p
@@ -246,6 +276,7 @@ setnames(weekWeekendActivity, c("V1"), c("steps"))
 
 p <- ggplot(data = weekWeekendActivity, aes(x = interval, y = steps)) +
      geom_line() +
+     ggtitle("Avg Num Of Steps per 5 Min Period") +
      geom_line(stat = 'hline', yintercept = 'mean', color = 'blue', , linetype = 2) +
      scale_x_continuous(breaks = seq(0,2355,100)) +
      theme(axis.text.x = element_text(angle=90, vjust = 0.5, hjust = 1)) +
@@ -255,5 +286,6 @@ p
 ```
 
 ![plot of chunk weekday-weekend](figure/weekday-weekend-1.png) 
+
 The blue line shows that the average number of steps taken is little higher on weekends than weekdays. This means the test candidates are more active ob the weekend.
 
