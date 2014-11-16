@@ -261,5 +261,5 @@ p
 
 ![plot of chunk weekday-weekend](figure/weekday-weekend-1.png) 
 
-The blue line shows that the average number of steps taken is little higher on weekends than weekdays. This means the test candidates are more active ob the weekend.
+The blue dashed line shows that the average number of steps taken is little higher on weekends than weekdays. This means the test candidates are more active ob the weekend.
 
