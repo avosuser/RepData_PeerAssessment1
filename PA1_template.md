@@ -63,24 +63,24 @@ p
 
 
 ```r
-mean1 <- stepsPerDay[, mean(steps_per_day)]
+mean1 <- stepsPerDay[, mean(steps_per_day, na.rm = TRUE)]
 mean1
 ```
 
 ```
-## [1] NA
+## [1] 10766.19
 ```
 
 ```r
-median1 <- stepsPerDay[, median(steps_per_day)]
+median1 <- stepsPerDay[, median(steps_per_day, na.rm = TRUE)]
 median1
 ```
 
 ```
-## [1] NA
+## [1] 10765
 ```
 
-The mean and median of the number of steps taken per day is NA and NA respectively.
+The mean and median of the number of steps taken per day is 1.0766189 &times; 10<sup>4</sup> and 10765 respectively.
 
 ### What is the averge daily activity pattern
 
@@ -206,7 +206,7 @@ median2
 ## [1] 10766.19
 ```
 
-The mean and median of the number of steps taken per day for the imputed data is 1.0766189 &times; 10<sup>4</sup> and 10765 respectively.
+The mean and median of the number of steps taken per day for the imputed data is 1.0766189 &times; 10<sup>4</sup> and 1.0766189 &times; 10<sup>4</sup> respectively.
 
 ### Are there differences in activity patterns between weekdays and weekends?
 
@@ -246,6 +246,7 @@ setnames(weekWeekendActivity, c("V1"), c("steps"))
 
 p <- ggplot(data = weekWeekendActivity, aes(x = interval, y = steps)) +
      geom_line() +
+     geom_line(stat = 'hline', yintercept = 'mean', color = 'blue', , linetype = 2) +
      scale_x_continuous(breaks = seq(0,2355,100)) +
      theme(axis.text.x = element_text(angle=90, vjust = 0.5, hjust = 1)) +
      facet_wrap(~wday, ncol=1)
@@ -254,3 +255,5 @@ p
 ```
 
 ![plot of chunk weekday-weekend](figure/weekday-weekend-1.png) 
+The blue line shows that the average number of steps taken is little higher on weekends than weekdays. This means the test candidates are more active ob the weekend.
+
