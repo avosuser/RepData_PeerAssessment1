@@ -10,3 +10,7 @@ xlsx
 bitops
 RCurl
 knitr
+lattice
+survival
+Formula
+Hmisc
