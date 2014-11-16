@@ -203,7 +203,8 @@ hr {
 <body>
 <h1>Reproducible Research Peer Assessment 1</h1>
 
-<p>I load the libraries needed by my code and set the working directory.</p>
+<p>My R code needs the belowlibraries needed by my code.
+Setup my working directory.</p>
 
 <pre><code class="r">library(data.table)
 library(ggplot2)
@@ -264,7 +265,7 @@ median1
 <pre><code>## [1] NA
 </code></pre>
 
-<p>The mean and median of the number of steps taken per day is 1.0766189 &times; 10<sup>4</sup> and 10765 respectively.</p>
+<p>The mean and median of the number of steps taken per day is NA and NA respectively.</p>
 
 <h3>What is the averge daily activity pattern</h3>
 
@@ -314,17 +315,19 @@ period
 
 <p>I used the for loop to impute NA values, the logic for imputing is to use the 5 min mean for a time period, this has already been calculated in table &#39;stepsPerFiveMinIntv&#39;. For e.g. the unprocessed table &#39;activity&#39; has </p>
 
-<p>head(act)
+<pre><code>head(act)
    steps       date interval
 1:    NA 2012-10-01        0
-2:    NA 2012-10-01        5</p>
+2:    NA 2012-10-01        5
+</code></pre>
 
 <p>I replace the NA&#39;s with the mean for the time period in table &#39;stepsPerFiveMinIntv&#39;</p>
 
-<p>head(stepsPerFiveMinIntv)
+<pre><code>head(stepsPerFiveMinIntv)
    interval steps
 1:        0    NA
-2:        5    NA</p>
+2:        5    NA
+</code></pre>
 
 <p>3: Crating a new dataset with imputed values
 The for loop is a bit slow, however it works (I will have to figure out how to do the same using lapply or something like that)</p>

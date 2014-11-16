@@ -1,7 +1,8 @@
 Reproducible Research Peer Assessment 1
 =======================================
 
-I load the libraries needed by my code and set the working directory.
+My R code needs the belowlibraries needed by my code.
+Setup my working directory.
 
 
 ```r
@@ -79,7 +80,7 @@ median1
 ## [1] NA
 ```
 
-The mean and median of the number of steps taken per day is 1.0766189 &times; 10<sup>4</sup> and 10765 respectively.
+The mean and median of the number of steps taken per day is NA and NA respectively.
 
 ### What is the averge daily activity pattern
 
@@ -128,24 +129,27 @@ period
 ```r
 mna <- sum(is.na(activity))
 ```
-
 1. Total number of rows with NA's = 2304
 
 2: Imputing strategy
 
 I used the for loop to impute NA values, the logic for imputing is to use the 5 min mean for a time period, this has already been calculated in table 'stepsPerFiveMinIntv'. For e.g. the unprocessed table 'activity' has 
 
+```
 head(act)
    steps       date interval
 1:    NA 2012-10-01        0
 2:    NA 2012-10-01        5
+```
 
 I replace the NA's with the mean for the time period in table 'stepsPerFiveMinIntv'
 
+```
 head(stepsPerFiveMinIntv)
    interval steps
 1:        0    NA
 2:        5    NA
+```
 
 3: Crating a new dataset with imputed values
 The for loop is a bit slow, however it works (I will have to figure out how to do the same using lapply or something like that)
