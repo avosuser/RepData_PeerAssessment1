@@ -7,34 +7,8 @@ Setup my working directory.
 
 ```r
 library(data.table)
-```
-
-```
-## data.table 1.9.4  For help type: ?data.table
-## *** NB: by=.EACHI is now explicit. See README to restore previous behaviour.
-## 
-## Attaching package: 'data.table'
-## 
-## The following object is masked _by_ '.GlobalEnv':
-## 
-##     .N
-```
-
-```r
 library(ggplot2)
 library(lubridate)
-```
-
-```
-## 
-## Attaching package: 'lubridate'
-## 
-## The following objects are masked from 'package:data.table':
-## 
-##     hour, mday, month, quarter, wday, week, yday, year
-```
-
-```r
 library(knitr)
 
 WD <- c("C:/Users/20537710/Documents/Coursera/Reproducible Research/Assignment-1/RepData_PeerAssessment1")
